@@ -27,6 +27,6 @@ async def send_email(request: EmailRequest):
             id=f"workflow-{request.email}",
             task_queue="email-task-queue"
         )
-        return {"workflow_id": result.id, "run_id": result.first_run_id}
+        return {"workflow_id": result.id, "run_id": result.run_id}
     except Exception as e:
         return {"error": str(e)}
